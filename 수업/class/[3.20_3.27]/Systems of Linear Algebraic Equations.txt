@@ -1,0 +1,64 @@
+
+[3.20]
+Chapter 2 : Systems of Linear Algebraic Equations
+
+- Basics of sympy
+- Gaussian elimination
+- LU decomposition
+
+- Iterative methods
+- Conjugate gradients
+
+[Basics of sympy] : 
+- sympy is an open-source pypthon library for symbolic computation.
+- 이거 사용하면 문자형식(?) 변수형식(?) 으로 막 할 수 있음
+Ex) : 미분방정식 풀기, 연립방정식 풀기, 미방 초기조건 줘서 풀기 등
+
+
+[we call matrix is singular, if det(A) = 0, else nonsingular.]
+(질문) : 만약 행렬의 row vector 들이 linear dependent 하면 column vecotr 들도 linear dependent 한가?
+
+[3 popular direct method to solve the equations] : text book - p.35
+                                Final form
+- Gaussian elimination          : UX = c
+- LU decomposition              : LUX = b
+- Gauss-Jordan elimination      : IX = c
+
+
+(1) : Gaussian elimination
+    - Elimination phase
+    - Back substitution phase
+--> 우리가 흔히 아는 가우스 소거법이다. 이건 두가지 phase 로 나누는데, Elimination, Back substitution phase 이다.
+Elimination phase 는 주어진 식 AX = b 를 [A|b] 라 생각하고, 이 A 를 upper triangle matrix 로 만드는 과정이다. (당연히 A 가 변하며 b 도 맞춰서 변함)
+Back substitution phase 는 변환된 행렬 [U|b'] 의 값을 주어진 공식에 대입하여 해를 얻는 과정이다.
+--> 이렇게 두 과정으로 나눈 이유는 그냥 생각하기 쉽게 하려고 하는 것 같다. (그냥 행렬 변환시키고 무지성 대입만 하면 되기 때문.)
+--> 이 과정에 대한 알고리즘은 text book - p.39 ~ p.40, p.41 에 나와있다.
+(근데 한번 해보니 좀 틀린듯? 집적 해보니까 A 가 정확하게 upper matrix 가 아님. 근데 그냥 계산 스킵한걸수도 있음. (어차피 공식에 대입하는 값들은 upper 한 부분만 넣어도 되니까 꼭 필요한 부분만 계산 진행할걸수도 있음.))
+(책 글 읽어보니 필요한 것만 계산 진행시킨게 맞다함.)
+
+
+[3.22]
+
+(2) : LU decomposition
+    - LU decomposition 의 기본 idea 
+        1. matrix A 를 행렬 L, U 의 곱으로 나타내어 문제를 풀자.
+        2. LUX = b 이 상태를 LY = b 로 생각하여 Y 를 풀자.
+            - forward substitution 사용
+        3. Y 를 구했는데 이는 UX = Y 이니까 이걸로 풀어서 X 를 구하자.
+            - backward substitution 사용
+    
+    - 크게 세가지 방법이 있는데 아래와 같다.
+        1. Doolittle's decomposition
+            - L 의 주성분을 1 로 만듬
+        2. Crout's decomposition
+            - U 의 주성분을 1 로 만듬. 근데 그냥 Doolittle 이랑 똑같아서 책에 내용 없음.
+        3. Choleski's decomposition
+            - U = L.transpose()
+    
+
+[3.27]
+
+Section 2.5 : Pivoting
+
+Section 2.6 : Matrix inversion
+

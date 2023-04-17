@@ -1,0 +1,52 @@
+
+[4.3]
+Chapter 3 : Interpolation and Curve Fitting
+
+- https://scqc.uos.ac.kr/comphys/week2.html
+- 이번 챕터는 함수에 피팅, 접합 시키는게 주로 될임. 그런데 이번 챕터가 좀 길어서 위에 링크에 있는걸로 주로 할거임.
+- 그래서 책이랑 배교했을 때 조금 없는 내용들이 있을 수 있고 그런건 알아서 공부하셈.
+
+Interpolation : '보간', '보간법'
+'보간' : 주어진 값들을 이용해 어떤 함수에 근사시키는 방법(?)
+
+[functions in Numpy about interpolation and Fitting]
+1. np.interp(x, xp, fp, left=None, right=None, period=None)
+- https://numpy.org/doc/stable/reference/generated/numpy.interp.html
+
+2. np.polyfit(x, y, deg, rcond=None, full=False, w=None, cov=False)
+- https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html
+
+[functions in Scipy about interpolation and Fitting]
+1. scipy.optimize.curve_fit(, xdata, ydata, p0=None, sigma=None, absolute_sigma=False, check_finite=True, bounds=(-inf, inf), method=None, jac=None, *, full_output=False, **kwargs)
+- https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html
+
+(더이상 수업에서 안함. 생략)
+
+[Polynomial Interpolation]
+- "뭐 라이브러리 써가지고 하는 건 알겠는데, 이게 진짜로 어떻게 이뤄지는 거냐?" --> 쉬운 예시인 다항식 보간에서 생각해보자.
+
+책에는 3 가지 방법이 나와있음.
+
+1. Lagrange's method    --> 라그랑주 보간법
+2. Newton's method      --> 뉴턴 보간법	
+3. Neville's method
+
+[1. Lagrange's method]
+- 식을 통해 '보간' 되는 건 알겠음. 그런데 이 방법이 어떻게 나온건지 아이디어는 좀 모르겠음
+
+--> 갑자기 cubic spline 으로 넘어감
+
+[Interpolation with Cubic Spline] : 삼차 스플라인
+- linear spline 은 그냥 datapoint 를 잇는 거였지. 그런데 Cubic spline 은 조금 다르다.
+- Cubic spline 은 기초적으로 '각 구간을 3차 다항식이라 가정하고 계산' 한다.
+- Cubic spline consist of 3rd order polynomials.
+- 이걸 어케함?
+    --> 1. 구간별 끝 지점이 주어진 값과 일치해야 한다.
+        2. 구간별 끝 지점이 미분 가능해야 한다. 즉, '함수가 매끄러워야' 한다.
+        3. 구간별 끝 지점의 이차 미분값이 연속해야 한다.
+        --> 이차 미분값이 연속 (매끄럽진 않고 값만 같아도 됨) 이어야 하는 이유는 그냥 '그게 더 매끄러우니까' 인 것 같음.
+
+--> 결국 책 읽어보고 검색해서 알아보니까 Cubic spline 은 '각 구간의 함수가 3 차 다항식' 이라 가정하여 푸는 것이고,
+    각 구간의 함수가 3 차 다항식이라 가정했으니까, 앞에서 했던 Lagrange's method 를 이용해 각 구간을 풀 (정확히는 정리) 수 있고
+    결국 각 datapoint 에서의 2 차 미분계수를 LUdecomp 를 통해 구할 수 있다. 이제 이걸 알았으니까 나머지 경계조건 이용해서 다 구할 수 있다.
+

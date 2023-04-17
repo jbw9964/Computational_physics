@@ -1,0 +1,13 @@
+
+
+[4.10]
+Chapter 4 : Roots of Equations
+
+- 말로는 1학년 때 했었어서 공식좀 보고 기억나게 하는 정도로 수업한다 함. 강의 자료 여기있음.
+- https://scqc.uos.ac.kr/comphys/week3.html
+
+수업에서 한게 없네...
+그냥 scipy.optimize.curve_fit 사용한 것밖에 없음.
+그나마 마지막에 bisection method 좀 설명한 듯
+뭐여 갑자기 newton-rapshon 도 하네?
+
