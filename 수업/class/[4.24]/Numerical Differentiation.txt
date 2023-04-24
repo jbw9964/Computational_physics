@@ -4,3 +4,17 @@
 Chapter 5 : Numerical Differentiation
 - https://scqc.uos.ac.kr/comphys/week4.html
 
+- Numerical Differentiation 은 엄밀히 말해 정확한 값이 아니다. Roundoff error 가 일어나기도 하고 "방법" (보간법, interpolation) 으로 인한 오류가 일어나기도 한다.
+- 그래서 엄밀히 말해 도함수와 같은 값은 아니다.
+
+
+[Finite Difference Approximations]
+- Finite Difference Approximations 은 Forward, Backward Taylor series expasion 에 기초한다. (p.183)
+
+--> f(x + h), f(x - h), f(x + 2h), f(x - 2h) ... 을 Taylor expasion 해서 f'(x), f''(x), ... 을 구함.
+
+--> 결국 expasion 해서 미분값을 구하는 것. 그런데 이걸 table 로 해서 계산하면 편하기 때문에 결국, table 만 제대로 만들면 계산 가능함 (table : p.186)
+
+[Richardson Extrapolation]
+- 한마디로 말해 수치해석으로 얻은 두 값을 이용해 더 정확한 값을 갖는 방법.
+
