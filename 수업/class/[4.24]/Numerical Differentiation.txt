@@ -1,0 +1,6 @@
+
+
+[4.24]
+Chapter 5 : Numerical Differentiation
+- https://scqc.uos.ac.kr/comphys/week4.html
+
