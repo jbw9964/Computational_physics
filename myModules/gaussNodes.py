@@ -1,10 +1,11 @@
 ## module gaussNodes
-""" x,A = gaussNodes(m,tol=10e-9)
-Returns nodal abscissas {x} and weights {A} of
-Gauss-Legendre m-point quadrature.
-"""
+''' x,A = gaussNodes(m,tol=10e-9)
+    Returns nodal abscissas {x} and weights {A} of
+    Gauss-Legendre m-point quadrature.
+'''
 import math
 import numpy as np
+
 def gaussNodes(m,tol=10e-9):
 
     def legendre(t,m):
@@ -14,14 +15,15 @@ def gaussNodes(m,tol=10e-9):
             p0 = p1; p1 = p
         dp = m*(p0 - t*p1)/(1.0 - t**2)
         return p,dp
-    A = np.zeros(m)
-    x = np.zeros(m)
-    nRoots = int((m + 1)/2) # Number of non-neg. roots
+
+    A = np.zeros(m)   
+    x = np.zeros(m)   
+    nRoots = int((m + 1)/2)         # Number of non-neg. roots
     for i in range(nRoots):
         t = math.cos(math.pi*(i + 0.75)/(m + 0.5))# Approx. root
-        for j in range(30):
-            p,dp = legendre(t,m) # Newton-Raphson
-            dt = -p/dp; t = t + dt # method
+        for j in range(30): 
+            p,dp = legendre(t,m)    # Newton-Raphson
+            dt = -p/dp; t = t + dt  # method         
             if abs(dt) < tol:
                 x[i] = t; x[m-i-1] = -t
                 A[i] = 2.0/(1.0 - t**2)/(dp**2) # Eq.(6.25)

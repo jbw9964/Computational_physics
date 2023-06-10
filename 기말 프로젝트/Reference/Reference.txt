@@ -1,0 +1,10 @@
+
+[reference]
+- Solving 1-D Schrodinger Equation in Python : https://blog.gwlab.page/solving-1-d-schrodinger-equation-in-python-dcb3518ce454
+- Quantum Python: Animating the Schrodinger Equation : https://jakevdp.github.io/blog/2012/09/05/quantum-python/
+
+- Heat Transfer Using Finite Element Method in MATLAB | Finite Element Analysis in MATLAB, Part 2 : 
+https://kr.mathworks.com/videos/finite-element-analysis-in-matlab-part-2-heat-transfer-using-finite-element-method-in-matlab-1600851714895.html
+
+- Fluid – Thermal Finite Element Analysis of a Printed Circuit Board : 
+https://www.mechsol.com/case-study/fluid-thermal-finite-element-analysis-of-a-printed-circuit-board/

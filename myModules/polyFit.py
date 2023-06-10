@@ -1,18 +1,17 @@
 ## module polyFit
-'''
-    c = polyFit(xData,yData,m).
+''' c = polyFit(xData,yData,m).
     Returns coefficients of the polynomial
-    p(x) = c[0] + c[1]x + c[2]xˆ2 +...+ c[m]xˆm
+    p(x) = c[0] + c[1]x + c[2]x^2 +...+ c[m]x^m
     that fits the specified data in the least
     squares sense.
+
     sigma = stdDev(c,xData,yData).
     Computes the std. deviation between p(x)
     and the data.
-'''
-
+'''    
 import numpy as np
 import math
-from gaussPivot import * 
+from gaussPivot import *
 
 def polyFit(xData,yData,m):
     a = np.zeros((m+1,m+1))
@@ -30,16 +29,16 @@ def polyFit(xData,yData,m):
     for i in range(m+1):
         for j in range(m+1):
             a[i,j] = s[i+j]
-
     return gaussPivot(a,b)
 
 def stdDev(c,xData,yData):
+    
     def evalPoly(c,x):
         m = len(c) - 1
         p = c[m]
         for j in range(m):
             p = p*x + c[m-j-1]
-        return p
+        return p    
     
     n = len(xData) - 1
     m = len(c) - 1
@@ -49,3 +48,8 @@ def stdDev(c,xData,yData):
         sigma = sigma + (yData[i] - p)**2
     sigma = math.sqrt(sigma/(n - m))
     return sigma
+
+
+        
+             
+

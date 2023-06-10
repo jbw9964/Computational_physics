@@ -7,8 +7,8 @@
 import numpy as np
 from gaussPivot import *
 import math
-
 def newtonRaphson2(f,x,tol=1.0e-9):
+    
     def jacobian(f,x):
         h = 1.0e-4
         n = len(x)
@@ -21,11 +21,12 @@ def newtonRaphson2(f,x,tol=1.0e-9):
             x[i] = temp
             jac[:,i] = (f1 - f0)/h
         return jac,f0
+    
     for i in range(30):
         jac,f0 = jacobian(f,x)
-        if math.sqrt(np.dot(f0,f0)/len(x)) < tol: return x
+        if math.sqrt(np.dot(f0,f0)/len(x)) < tol:
+            return x
         dx = gaussPivot(jac,-f0)
         x = x + dx
-        if math.sqrt(np.dot(dx,dx)) < tol*max(max(abs(x)),1.0):
-            return x
+        if math.sqrt(np.dot(dx,dx)) < tol*max(max(abs(x)),1.0): return x
     print('Too many iterations')

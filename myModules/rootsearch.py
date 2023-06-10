@@ -1,7 +1,7 @@
 ## module rootsearch
-'''  x1,x2 = rootsearch(f,a,b,dx).
+''' x1,x2 = rootsearch(f,a,b,dx).
     Searches the interval (a,b) in increments dx for
-    the bounds (x1,x2) of the smallest root of f(x).
+    the bounds (x1,x2) of the smallest root of f(x). 
     Returns x1 = x2 = None if no roots were detected.
 '''
 from numpy import sign

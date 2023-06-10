@@ -1,11 +1,11 @@
 ## module newtonPoly
-'''
-    p = evalPoly(a,xData,x).
-    Evaluates Newton’s polynomial p at x. The coefficient
-    vector {a} can be computed by the function ’coeffts’.
+''' p = evalPoly(a,xData,x).
+    Evaluates Newton's polynomial p at x. The coefficient
+    vector 'a' can be computed by the function 'coeffts'.
+
     a = coeffts(xData,yData).
-    Computes the coefficients of Newton’s polynomial.
-'''
+    Computes the coefficients of Newton's polynomial.
+'''    
 def evalPoly(a,xData,x):
     n = len(xData) - 1  # Degree of polynomial
     p = a[n]

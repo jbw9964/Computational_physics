@@ -1,11 +1,11 @@
 ## module evalPoly
 ''' p,dp,ddp = evalPoly(a,x).
     Evaluates the polynomial
-    p = a[0] + a[1]*x + a[2]*xˆ2 +...+ a[n]*xˆn
-    with its derivatives dp = p’ and ddp = p’’
+    p = a[0] + a[1]*x + a[2]*x^2 +...+ a[n]*x^n
+    with its derivatives dp = p' and ddp = p"
     at x.
 '''
-def evalPoly(a,x):
+def evalPoly(a,x):  
     n = len(a) - 1
     p = a[n]
     dp = 0.0 + 0.0j

@@ -1,15 +1,16 @@
 ## module polyRoots
 ''' roots = polyRoots(a).
-    Uses Laguerre’s method to compute all the roots of
-    a[0] + a[1]*x + a[2]*xˆ2 +...+ a[n]*xˆn = 0.
-    The roots are returned in the array ’roots’,
-'''
+    Uses Laguerre's method to compute all the roots of
+    a[0] + a[1]*x + a[2]*x^2 +...+ a[n]*x^n = 0.
+    The roots are returned in the array 'roots',
+'''    
 from evalPoly import *
 import numpy as np
 import cmath
 from random import random
 
 def polyRoots(a,tol=1.0e-12):
+
     def laguerre(a,tol):
         x = random()   # Starting value (random number)
         n = len(a) - 1
@@ -23,8 +24,8 @@ def polyRoots(a,tol=1.0e-12):
             else: dx = n/(g - f)
             x = x - dx
             if abs(dx) < tol: return x
-        print("Too many iterations")
-        
+        print('Too many iterations')
+
     def deflPoly(a,root):  # Deflates a polynomial
         n = len(a)-1
         b = [(0.0 + 0.0j)]*n
@@ -32,7 +33,7 @@ def polyRoots(a,tol=1.0e-12):
         for i in range(n-2,-1,-1):
             b[i] = a[i+1] + root*b[i+1]
         return b
-    
+
     n = len(a) - 1
     roots = np.zeros((n),dtype=complex)
     for i in range(n):

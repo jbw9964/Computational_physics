@@ -1,0 +1,5 @@
+
+[5.03] : 수업 안들음
+
+[5.08]
+Chapter 6 : Numerical Integration

@@ -1,13 +1,11 @@
 ## module rational
-'''
-    p = rational(xData,yData,x)
+''' p = rational(xData,yData,x)
     Evaluates the diagonal rational function interpolant p(x)
-    that passes through the data points
-'''
-
+    that passes through he data points
+'''    
 import numpy as np
 
-def rational(xData, yData, x):
+def rational(xData,yData,x):
     m = len(xData)
     r = yData.copy()
     rOld = np.zeros(m)
@@ -21,5 +19,5 @@ def rational(xData, yData, x):
                 c3 = (x - xData[i])/(x - xData[i+k+1])
                 r[i] = r[i+1] + c1/(c3*(1.0 - c1/c2) - 1.0)
                 rOld[i+1] = r[i+1]
-
     return r[0]
+                
